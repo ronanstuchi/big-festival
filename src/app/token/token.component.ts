@@ -12,6 +12,7 @@ export class TokenComponent implements OnInit {
   form: any;
   screenShowToken = false;
   codigo = 123;
+  codigoToken: string;
   constructor(
     public authService: AuthService,
     public fb: FormBuilder
@@ -25,8 +26,8 @@ export class TokenComponent implements OnInit {
     console.log('esta loagdo', this.screenShowToken);
 
     // this.codigo = localStorage.getItem('user')
-    let codigoToken = localStorage.getItem('user');
-    console.log('codigoToken', codigoToken);
+    this.codigoToken = localStorage.getItem('user');
+    console.log('codigoToken',this. codigoToken);
   }
 
   
