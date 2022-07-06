@@ -11,13 +11,14 @@ export class TokenComponent implements OnInit {
 
   form: any;
   screenShowToken = false;
-  codigo = 123;
-  codigoToken: string;
+  codigo: any;
   constructor(
     public authService: AuthService,
     public fb: FormBuilder
     
-    ) { }
+    ) {
+      
+     }
     
     ngOnInit(): void {
     this.initForm();
@@ -25,9 +26,14 @@ export class TokenComponent implements OnInit {
     this.screenShowToken = this.authService.isLoggedIn;
     console.log('esta loagdo', this.screenShowToken);
 
-    // this.codigo = localStorage.getItem('user')
-    this.codigoToken = localStorage.getItem('user');
-    console.log('codigoToken',this. codigoToken);
+   this.getToken();
+  
+  }
+
+  getToken() {
+    let key =  localStorage.getItem('user');
+    console.log('codigoToken', key);
+    this.codigo = key;
   }
 
   
