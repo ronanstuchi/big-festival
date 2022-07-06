@@ -1,0 +1,304 @@
+<img class="logo" src="./assets/ripio.png" alt="" width="200" height="100" />
+<br>
+<div class="card" style="color: #2c2c2c; width: 20rem;">
+
+  <!--  REGISTER -->
+  <div class="card-body" [formGroup]="registerForm" novalidate *ngIf="!screenShowToken">
+    <h5 class="text-center mb-3">Acesse sua conta</h5>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Nome" id="name" formControlName="name">
+    </div>
+    <br>
+    <div class="form-group">
+      <input type="email" class="form-control" placeholder="E-mail" id="emailLogin" formControlName="email">
+    </div>
+    <br>
+    <div class="form-group">
+      <input type="phone" class="form-control" placeholder="Telefone" id="emailLogin" formControlName="phone">
+    </div>
+    <br>
+    <div class="form-group">
+      <input type="password" class="form-control" placeholder="Senha" formControlName="password"
+        autocomplete="password">
+    </div>
+    <br>
+    <!-- <input class="form-check-input" type="checkbox" value=""  checked formControlName="t1"> Termo de Autorização de Imagem formControlName="t1" -->
+    <br>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked formControlName="t1">
+      <label class="form-check-label" for="flexCheckChecked">
+        <span (click)="showOpenT1()">Termo de Autorização de Imagem</span>
+        <br>
+      </label>
+    </div>
+
+    <input class="form-check-input" type="checkbox" value="" checked formControlName="t2">
+    <span (click)="showOpenT2()"> Termo de uso de Jogos </span>
+    <br>
+    <br>
+
+    <div class="d-grid gap-2">
+      <button class="btn btn-primary" type="button" [disabled]="registerForm.invalid"
+        (click)="register(registerForm)">Cadastre-se</button>
+      <button class="btn btn-primary" type="button" (click)="setScreenShowToken()">Login</button>
+    </div>
+
+
+
+  </div>
+
+  <!--  LOGIN -->
+  <div class="card-body" [formGroup]="loginForm" novalidate *ngIf="screenShowToken">
+    <h5 class="text-center mb-3">Acesse sua conta</h5>
+    <div class="form-group">
+      <input type="email" class="form-control" placeholder="E-mail" id="emailLogin" formControlName="email">
+    </div>
+    <br>
+    <div class="form-group">
+      <input type="password" class="form-control" placeholder="Senha" formControlName="password" autocomplete="email">
+    </div>
+    <br>
+
+    <div class="d-grid gap-2">
+      <button class="btn btn-primary" type="button" [disabled]="loginForm.invalid"
+        (click)="login(loginForm)">Entrar</button>
+      <hr>
+      <button class="btn btn-primary" type="button" (click)="setScreenShowToken()">Cadastre-se</button>
+    </div>
+  </div>
+
+
+
+  <!--  T1  -->
+  <div *ngIf="openT1">
+    <h6 class="text-center">TERMO DE AUTORIZAÇÃO DE USO DE IMAGEM E VOZ</h6>
+    <p class="text-center">
+    
+Neste ato, e para todos os fins de direito, autorizo a Ripio Brasil Serviços Plataforma Online de Ativos Digitais Ltda. e demais empresas do grupo econômico, a utilizar minha imagem e voz em todo e qualquer material entre fotos e documentos, para fins de divulgação e publicidade ao público interno e em geral, em caráter definitivo e gratuito, constante em fotos e filmagens.
+
+A presente autorização é concedida nos termos acima, a título gratuito, definitivo, abrangendo o uso da imagem acima mencionada em todo território nacional e no exterior. As imagens e voz poderão ser exibidas: parcial ou total, em apresentações audiovisuais, publicações e divulgações em exposições e festivais nacionais e internacionais, assim como disponibilizadas no banco de imagens resultante da pesquisa e na internet e em outros meios de comunicação e mídias futuras. 
+
+Por ser esta a expressão da minha vontade, nada terei a reclamar a título de direitos conexos a minha imagem e voz ou qualquer outro.
+
+
+
+São Paulo, ____ de _______________ de 2022.
+
+
+
+
+_________________________________________________
+Assinatura
+
+
+
+
+Nome: ____________________________________________________________
+
+RG: ___________________________  CPF: _____________________________
+
+Telefone: (    ) ____________________  e-mail: ___________________________
+    </p>
+  </div>
+
+   <!--  T2  -->
+   <div *ngIf="openT2">
+    <h6 class="text-center"> TERMOS DE USO DE JOGOS </h6>
+    <p class="text-center">
+     
+1. Esta é uma ação de responsabilidade da RIPIO BRASIL SERVIÇOS PLATAFORMA ONLINE DE ATIVOS DIGITAIS LTDA. (“Empresa Realizadora”), com sede Alameda Santos, 1293, Conjunto 63, Cerqueira César, CEP 01419-904, Cidade de São Paulo, Estado de São Paulo, inscrita no CNPJ sob o n. 23.351.302/0001-00.
+2. DA AÇÃO
+2.1. A presente ação será realizada pela Empresa Realizadora, no período de 6 de julho de 2022 a 10 de julho de 2022, nos dias e horários pré-estabelecidos, no [Big Festival] realizado nas dependências do São Paulo Expo – 1,5, Rod. dos Imigrantes] – Bairro Vila Água Funda – São Paulo/SP – CEP: 04329-900 e aberta para participação de pessoas físicas.
+2.2. A presente ação será realizada por meio de jogos eletrônicos, que podem ou não possuir eventuais valores atrelados. Referidos jogos eletrônicos, serão disponibilizados pela Empresa Realizadora aos usuários, à título único e exclusivo de teste, de entretenimento e em caráter gratuito ("Ação").
+2.3. Em razão do disposto no item 2.2 acima, todos e quaisquer, eventuais valores e/ou ganhos decorrentes dos jogos eletrônicos disponibilizados pela Empresa Realizadora, não serão repassados aos usuários, visto o caráter gratuito da ação.
+2.2. Para participar da Ação, o usuário deverá realizar um cadastro com a Empresa Realizadora, fornecendo os seguintes dados: (i) nome; (ii) CPF;  e (iii) e-mail.
+3. PROTEÇÃO DE DADOS PESSOAIS
+3.1. Os usuários, ao se cadastrarem na plataforma se sujeitam a estes Termos de Uso, bem como às Políticas de Privacidade de ambas as empresas que dispõem, mas não se limitam, às regras previstas na Lei Federal nº 13.709/2018 (Lei Geral de Proteção de Dados - “LGPD”) e demais leis e regulamentos aplicáveis à privacidade e proteção de dados.
+3.2. O tratamento dos dados pessoais dos usuários pela Empresa Realizadora terá por finalidade a realização da Ação, e para tal finalidade, a Empresa Realizadora poderá compartilhar os dados com terceiros na medida do necessário exclusivamente para a realização da Ação e limitado a esta finalidade. A Política de Privacidade da Empresa Realizadora disponível em https://www.ripio.com/br/politicas-de-privacidade/ descreve em detalhes as atividades de tratamento de dados pessoais e informa sobre os direitos dos titulares dos dados pessoais. Os dados pessoais do participante poderão ser mantidos pela Empresa Realizadora por até 5 anos após o término da Ação, para o estrito cumprimento de obrigações legais e regulatórias e exercício regular de direitos desta em processos judiciais, administrativos ou arbitrais.
+3.3. No momento do cadastro para a Ação, ou separadamente, o participante terá a opção, a critério exclusivo do participante, de se cadastrar e fornecer seu consentimento para receber comunicações de marketing e promocionais da Empresa Realizadora ou de terceiros. Este consentimento para comunicações de marketing é livre e poderá ser revogado a qualquer momento pelo participante, a seu exclusivo critério. Caso o participante não deseje receber comunicações de marketing, isso não afetará o seu direito de participar da Ação.
+4. DISPOSIÇÕES GERAIS.
+4.1. A simples participação na presente ação implicará no total e integral reconhecimento das condições e aceitação irrestrita destes Termos de Uso.
+4.2. Mediante prévia comunicação no site da Empresa Realizado, as regras aqui presentes poderão ser alteradas e/ou a ação suspensa e/ou cancelada, sem aviso prévio, por motivo de força maior ou por qualquer outro motivo que esteja fora do controle da Empresa Realizadora e que comprometa a realização desta ação, impedindo ou modificando substancialmente sua condução como originalmente planejada.
+4.3. Os usuários poderão, prévia e expressamente autorizar, mediante Termo próprio e individual, e sem quaisquer ônus para qualquer uma das partes, a Empresa Realizadora a utilizar o seu nome, imagem e som de voz, gratuitamente, para divulgação da presente ação em jornais, revistas, cartazes, faixas, outdoors, televisão, rádio, telemídia, cinema, mala-direta, mídia exterior, materiais de ponto de venda, Internet, rede sociais.
+4.4. Fica eleito o foro da comarca de São Paulo/SP para dirimir quaisquer conflitos decorrentes desta Ativação.
+
+    </p>
+  </div>
+
+
+
+</div>
+
+
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+ aria-hidden="true">
+ <div class="modal-dialog" role="document">
+   <div class="modal-content" style="color: #2c2c2c;">
+
+     <div class="modal-header">
+       <h5 class="modal-title" id="exampleModalLabel">Cadastre-se</h5>
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <div class="modal-body">
+       <div class="form-group">
+         <input type="text" class="form-control" placeholder="Nome" id="nameRegister">
+       </div>
+       <div class="form-group">
+         <input type="email" class="form-control" placeholder="E-mail" id="emailRegister">
+       </div>
+       <div class="form-group">
+         <input type="text" class="form-control" placeholder="Telefone" id="phoneRegister">
+       </div>
+       <div class="form-group">
+         <input type="password" class="form-control" placeholder="Senha" id="passRegister">
+       </div>
+     </div>
+     <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCancelModal">Cancelar</button>
+       <button type="button" class="btn btn-primary" id="btnRegister">Registrar-se</button>
+     </div>
+
+     <p>
+       <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+         Link with href
+       </a>
+       <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+         Button with data-bs-target
+       </button>
+     </p>
+     <div class="collapse" id="collapseExample">
+       <div class="card card-body">
+         Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+       </div>
+     </div>
+   </div>
+ </div>
+</div> -->
+<!-- 
+<img src="./assets/ripio.png" alt="" width="200" height="100" />
+<br> -->
+<!-- <div class="card" style="color: #2c2c2c; width: 20rem;"> -->
+
+<!-- <div class="card-body">
+   <h5 class="text-center mb-3">Acesse sua conta</h5>
+   <div class="form-group">
+     <input type="email" class="form-control" placeholder="E-mail" id="emailLogin">
+   </div>
+   <div class="form-group">
+     <input type="password" class="form-control" placeholder="Senha" id="passLogin">
+   </div>
+   <button id="btnLogin" class="btn btn-primary btn-block">Entrar</button>
+   <hr>
+   <button class="btn btn-secondary btn-block" data-toggle="modal" data-target="#exampleModal">Cadastre-se</button>
+ </div> -->
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="color: #2c2c2c;">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Cadastre-se</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Nome" id="nameRegister">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="E-mail" id="emailRegister">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Telefone" id="phoneRegister">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" placeholder="Senha" id="passRegister">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCancelModal">Cancelar</button>
+          <button type="button" class="btn btn-primary" id="btnRegister">Registrar-se</button>
+        </div>
+
+        <p>
+          <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            Link with href
+          </a>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Button with data-bs-target
+          </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+<!-- <img src="./assets/ripio.png" alt="" width="200" height="100" /> -->
+
+
+
+
+<!-- 
+ <div class="displayTable">
+    <div class="displayTableCell">
+      <div class="authBlock">
+        <h3>Sign Up</h3>
+        <div class="formGroup">
+          <input
+            type="email"
+            class="formControl"
+            placeholder="Email Address"
+            #userEmail
+            required
+          />
+        </div>
+        <div class="formGroup">
+          <input
+            type="password"
+            class="formControl"
+            placeholder="Password"
+            #userPwd
+            required
+          />
+        </div>
+        <div class="formGroup">
+          <input
+            type="button"
+            class="btn btnPrimary"
+            value="Sign Up"
+            (click)="authService.SignUp(userEmail.value, userPwd.value)"
+          />
+        </div>
+        <div class="formGroup">
+          <span class="or"><span class="orInner">Or</span></span>
+        </div>
+        <div class="formGroup">
+          <button
+            type="button"
+            class="btn googleBtn"
+            (click)="authService.GoogleAuth()"
+          >
+            <i class="fab fa-google-plus-g"></i>
+            Continue with Google
+          </button>
+        </div>
+      </div>
+      <div class="redirectToLogin">
+        <span
+          >Already have an account?
+          <span class="redirect" routerLink="/sign-in">Log In</span></span
+        >
+      </div>
+    </div>
+  </div> -->

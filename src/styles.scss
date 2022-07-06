@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-image: url('./assets/BG_games\ Ripio_Prancheta\ 1.png');
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+  }
+
+  .logo {
+    margin-left: 15%;
+  }
+
+  @media screen and (max-width: 319px) {
+    .card-body {
+      width: 95%;
+    }
+  }
